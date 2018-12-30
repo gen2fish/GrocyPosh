@@ -1,7 +1,11 @@
 # GrocyPosh
 
-Powershell wrapper for the Grocy API.
+Powershell wrapper for the Grocy API. Made for use with PoshBot for my family Slack.
 
 ## Grocy
 
-Grocy Homepage -  https://github.com/grocy/grocy
+Grocy -  https://github.com/grocy/grocy
+
+## PoshBot
+
+PoshBot - https://github.com/poshbotio/PoshBot
