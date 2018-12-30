@@ -22,7 +22,7 @@ function New-GrocyChoreDone {
     #>
 
   param (
-    Parameter(Mandatory = $true)]
+    [Parameter(Mandatory = $true)]
     $Chore
   )
   $chores = Get-GrocyChore | ? {$_.ChoreName -eq $Chore}
