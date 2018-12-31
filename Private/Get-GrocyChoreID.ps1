@@ -16,7 +16,7 @@ function Get-GrocyChoreID {
     }
 
 
-  $result = Invoke-WebRequest @params
+  $result = Invoke-WebRequest @params -SkipCertificateCheck
   $result = $result.Content | ConvertFrom-Json
 
   $result
