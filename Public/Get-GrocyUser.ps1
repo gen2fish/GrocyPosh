@@ -28,14 +28,18 @@ function Get-GrocyUser {
     $ID
   )
 
-  $URI = 'https://grocy.fish.local'
+  if(!$global:grocyGlobal){
+    Connect-Grocy
+  }
+
+  $URI = $global:grocyGlobal.uri
 
     $params = @{
       body =  @{}
         uri = "$URI/api/users/get"
         headers = @{
         "Content-Type" = "application/json"
-        "GROCY-API-KEY" = "nWFXh38FtcN0rrADfkz2mM4RCxLBxzEyIozKIr3JurmOsvVNNi"
+        "GROCY-API-KEY" = $global:grocyGlobal.APIKEY
         }
         method = "Get"
       }

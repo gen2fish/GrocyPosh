@@ -30,8 +30,10 @@ function New-GrocyChoreDone {
   try{
     $choreid = $chores.ChoreID
     $Execute = Get-Date -UFormat "%Y-%m-%d %T"
-    $URI = 'https://grocy.fish.local'
 
+    if(!$global:grocyGlobal){
+      Connect-Grocy
+    }
 
     $params = @{
       body =  @{
@@ -40,7 +42,7 @@ function New-GrocyChoreDone {
         uri = "$URI/api/chores/track-chore-execution/$choreid"
         headers = @{
         "Content-Type" = "application/json"
-        "GROCY-API-KEY" = "nWFXh38FtcN0rrADfkz2mM4RCxLBxzEyIozKIr3JurmOsvVNNi"
+        "GROCY-API-KEY" = $global:grocyGlobal.APIKEY
         }
         method = "Get"
       }
