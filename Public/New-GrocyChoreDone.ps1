@@ -15,17 +15,19 @@ function New-GrocyChoreDone {
     .EXAMPLE
     New-GrocyChoreDone -Chore Unload-Dishwasher
 
+    New-GrocyChoreDone Unload-Dishwasher
     .NOTES
     Author: Christopher D Forkner
     Date: 12/30/2018
 
     #>
 
-  param (
-    [Parameter(Mandatory = $true)]
-    $Chore
-  )
-  $chores = Get-GrocyChore | ? {$_.ChoreName -eq $Chore}
+  [cmdletbinding()]
+  Param(
+    [Parameter(Mandatory = $true)][String]$Chore
+    )
+
+  $chores = Get-GrocyChore | Where-Object {$_.ChoreName -eq $Chore}
 
   try{
     $choreid = $chores.ChoreID
@@ -34,6 +36,8 @@ function New-GrocyChoreDone {
     if(!$global:grocyGlobal){
       Connect-Grocy
     }
+
+    $URI = $global:grocyGlobal.uri
 
     $params = @{
       body =  @{

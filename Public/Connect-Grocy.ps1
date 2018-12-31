@@ -5,7 +5,7 @@ function Connect-Grocy {
     Sets global variables to connect to a grocy instance with API key.
 
     .DESCRIPTION
-    Sets global variables to connect to a grocy instance with API key.
+    Sets global variables to connect to a grocy instance with API key. Also includes integration with Poshbot to map Slack Users to Grocy Users
 
     .PARAMETER URI
     HTTP or HTTPS Destination of Grocy Instance.
@@ -35,6 +35,11 @@ function Connect-Grocy {
     $URI,
     $APIKEY
   )
+
+  $global:grocyGlobal = @{
+    uri = ''
+    apikey = ''
+  }
 
   if($global:PoshBotContext.CallingUserInfo.Id){
     $global:grocyGlobal = Get-SlacktoGrocy($global:PoshBotContext.CallingUserInfo.Id)

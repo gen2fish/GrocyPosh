@@ -7,13 +7,13 @@ function Get-GrocyUser {
     .DESCRIPTION
     Call the Grocy API to list all available Users
 
-    .PARAMETER ID
-    Find a user with the matching ID
+    .PARAMETER Username
+    Find a user with the matching Username
 
     If undefined it will return all Users
 
     .EXAMPLE
-    Get-GrocyUser -ID 1
+    Get-GrocyUser admin
 
     .EXAMPLE
     Get-GrocyUser
@@ -23,9 +23,9 @@ function Get-GrocyUser {
     Date: 12/30/2018
 
     #>
-
+  [cmdletbinding()]
   param (
-    $ID
+    $Username
   )
 
   if(!$global:grocyGlobal){
@@ -47,12 +47,11 @@ function Get-GrocyUser {
     $result = Invoke-WebRequest @params -SkipCertificateCheck
     $result = $result.Content | ConvertFrom-Json
 
-    if($ID){
-      $result | ? {$_.id -eq $ID}
+    if($Username){
+      $result | ? {$_.username -eq $Username}
     }
-    if(!$ID){
+    if(!$Username){
       $result
     }
-
 
   }
