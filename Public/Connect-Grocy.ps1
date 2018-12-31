@@ -36,15 +36,17 @@ function Connect-Grocy {
     $APIKEY
   )
 
-  if(!$URI){
-    $URI = Read-Host -Prompt 'Input your server name'
-  }
-  if(!$APIKEY){
-    $APIKEY = Read-Host -Prompt 'Input your Grocy API key'
+  if($global:PoshBotContext.CallingUserInfo.Id){
+    $global:grocyGlobal = Get-SlacktoGrocy($global:PoshBotContext.CallingUserInfo.Id)
   }
 
-  $global:grocyGlobal = @{
-    "uri" = $URI
-    "apikey" = $APIKEY
+  if(!$URI -And !$global:PoshBotContext){
+    $URI = Read-Host -Prompt 'Input your server name'
+    $global:grocyGlobal.uri = $URI
   }
+  if(!$APIKEY -And !$global:PoshBotContext){
+    $APIKEY = Read-Host -Prompt 'Input your Grocy API key'
+    $global:grocyGlobal.apikey = $APIKEY
+  }
+
 }
