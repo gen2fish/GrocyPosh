@@ -27,7 +27,7 @@ RootModule = 'GrocyPosh.psm1'
 
 # Version number of this module.
 
-ModuleVersion = '0.1.4'
+ModuleVersion = '0.1.5'
 
 # ID used to uniquely identify this module
 GUID = 'df9660cc-71ac-429f-9515-b99779dcab94'
