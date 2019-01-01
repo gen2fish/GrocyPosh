@@ -1,7 +1,5 @@
 function Get-GrocyChoreID {
 
-
-    $Execute = Get-Date -UFormat "%Y-%m-%d %T"
     $URI = 'https://grocy.fish.local'
 
 

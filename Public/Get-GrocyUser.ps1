@@ -48,10 +48,21 @@ function Get-GrocyUser {
     $result = $result.Content | ConvertFrom-Json
 
     if($Username){
-      $result | ? {$_.username -eq $Username}
+      $users = $result | Where-Object {$_.username -eq $Username}
     }
     if(!$Username){
-      $result
+      $users = $result
     }
 
+    $User = foreach($i in $users){
+      New-Object psobject -Property @{
+        ID = $i.id
+        Username = $i.username
+        FirstName = $i.first_name
+        LastName = $i.last_name
+        Created = $i.row_created_timestamp
+      }
+    }
+
+    $User
   }

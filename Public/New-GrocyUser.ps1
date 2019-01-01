@@ -59,10 +59,11 @@ function New-GrocyUser {
       method = "Post"
   }
 
-  $params.body
   $result = Invoke-WebRequest @params -SkipCertificateCheck
   $result = $result.Content | ConvertFrom-Json
 
-  $result
+  if($result.success -eq 'True'){
+    Get-GrocyUser $Username
+  }
 
   }

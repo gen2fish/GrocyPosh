@@ -9,10 +9,10 @@
             #LicenseUri = 'https://github.com/___/license'
 
             # A URL to the main website for this project.
-            ProjectUri = 'https://github.com/gen2fish/grocy-posh'
+            ProjectUri = 'https://github.com/gen2fish/GrocyPosh'
 
             # A URL to an icon representing this module.
-            IconUri = 'https://github.com/gen2fish/grocy-posh'
+            IconUri = 'https://github.com/gen2fish/GrocyPosh'
 
             # ReleaseNotes of this module - our ReleaseNotes are in
             # the file ReleaseNotes.md
@@ -27,7 +27,7 @@ RootModule = 'GrocyPosh.psm1'
 
 # Version number of this module.
 
-ModuleVersion = '0.1.2'
+ModuleVersion = '0.1.4'
 
 # ID used to uniquely identify this module
 GUID = 'df9660cc-71ac-429f-9515-b99779dcab94'
