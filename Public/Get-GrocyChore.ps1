@@ -56,7 +56,7 @@ function Get-GrocyChore {
       LastDoneBy = $result.last_done_by.first_name
       LastDone = $result.last_tracked
       ChoreName = $result.chore.name
-      ChoreID = $result.chore.id
+      ID = $result.chore.id
       Desc = $result.chore.description
     }
     $Chore

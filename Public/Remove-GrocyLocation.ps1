@@ -2,10 +2,10 @@ function Remove-GrocyLocation {
     <#
 
     .SYNOPSIS
-    Removes a New Grocy Location.
+    Removes a Grocy Location.
 
     .DESCRIPTION
-    Removes a New Grocy Location.
+    Removes a Grocy Location.
 
     .PARAMETER Name
     Name of the Location to Remove. Required.
@@ -45,7 +45,7 @@ function Remove-GrocyLocation {
           method = "Get"
         }
 
-      $message  = 'This action is not reversable. Any items in the location will have to be moved.'
+      $message  = 'This action is not reversible. Any items in the location will have to be moved.'
       $question = 'Are you sure you want to proceed?'
 
       $choices = New-Object Collections.ObjectModel.Collection[Management.Automation.Host.ChoiceDescription]
