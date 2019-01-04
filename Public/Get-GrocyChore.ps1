@@ -57,9 +57,20 @@ function Get-GrocyChore {
       LastDone = $result.last_tracked
       ChoreName = $result.chore.name
       ID = $result.chore.id
-      Desc = $result.chore.description
     }
+    $p = $result.chore.description.Split("`n")
+
+    foreach($i in $p)
+    {
+      if($i -like '*=*')
+      {
+        $s = $i.split("=")
+        $Chore | Add-Member -NotePropertyName $s[0] -NotePropertyValue $s[1]
+      }
+    }
+
     $Chore
+
     }
 
     if($Name){

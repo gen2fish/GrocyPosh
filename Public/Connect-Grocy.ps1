@@ -44,6 +44,7 @@ function Connect-Grocy {
   }
 
 
+
   if(!$global:grocyGlobal.uri){
     $URI = Read-Host -Prompt 'Input your server name'
     $global:grocyGlobal.uri = $URI
@@ -52,7 +53,7 @@ function Connect-Grocy {
   {
     if($global:PoshBotContext.CallingUserInfo.Id)
     {
-      $global:grocyGlobal = Get-SlacktoGrocy($global:PoshBotContext.CallingUserInfo.Id)
+      $global:grocyGlobal = Get-GrocyConfig($global:PoshBotContext.CallingUserInfo.Id)
     }
     else
     {
